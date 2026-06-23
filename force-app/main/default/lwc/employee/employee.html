@@ -1,0 +1,59 @@
+<template>
+    <lightning-card title="Employee Manager" icon-name="custom:custom15">
+        <div class="slds-var-m-around_medium">
+            <div class="slds-grid slds-wrap slds-gutters slds-var-m-bottom_medium">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+                    <lightning-input 
+                        type="text" 
+                        label="Employee Name" 
+                        value={employeeName}
+                        onchange={handleNameChange}
+                        required>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12">
+                    <lightning-input 
+                        type="number" 
+                        label="Age" 
+                        value={employeeAge}
+                        onchange={handleAgeChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_4-of-12">
+                    <lightning-input 
+                        type="email" 
+                        label="Email" 
+                        value={employeeEmail}
+                        onchange={handleEmailChange}>
+                    </lightning-input>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-12 slds-align-middle slds-var-m-top_medium">
+                    <lightning-button 
+                        variant="brand" 
+                        label="Add Employee" 
+                        title="Add Employee to List" 
+                        onclick={handleAddEmployee}
+                        class="slds-stretch">
+                    </lightning-button>
+                </div>
+            </div>
+
+            <hr />
+
+            <div class="slds-var-m-top_medium">
+                <h3 class="slds-text-heading_small slds-var-m-bottom_small">Employee List</h3>
+                <template if:true={hasEmployees}>
+                    <lightning-datatable
+                        key-field="id"
+                        data={employeeList}
+                        columns={columns}
+                        hide-checkbox-column>
+                    </lightning-datatable>
+                </template>
+                <template if:false={hasEmployees}>
+                    <p class="slds-text-color_weak">No employees added yet.</p>
+                </template>
+            </div>
+        </div>
+    </lightning-card>
+</template>
