@@ -1,0 +1,69 @@
+<template>
+    <lightning-card title="Lightning Calculator" icon-name="utility:calculator">
+        <div class="slds-p-around_medium">
+            <div class="slds-m-bottom_small calculator-display">
+                <div class="slds-text-align_right slds-text-color_weak slds-text-heading_small expression-line">
+                    {expression}
+                </div>
+                <div class="slds-text-align_right slds-text-heading_large result-line">
+                    {currentInput}
+                </div>
+            </div>
+
+            <div class="slds-grid slds-wrap calculator-grid">
+                <div class="slds-col slds-size_3-of-4 slds-p-around_xx-small">
+                    <lightning-button label="Clear" variant="destructive" onclick={handleClear} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="/" variant="brand" data-value="/" onclick={handleOperator} class="slds-size_full"></lightning-button>
+                </div>
+
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="7" data-value="7" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="8" data-value="8" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="9" data-value="9" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="*" variant="brand" data-value="*" onclick={handleOperator} class="slds-size_full"></lightning-button>
+                </div>
+
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="4" data-value="4" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="5" data-value="5" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="6" data-value="6" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="-" variant="brand" data-value="-" onclick={handleOperator} class="slds-size_full"></lightning-button>
+                </div>
+
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="1" data-value="1" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="2" data-value="2" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="3" data-value="3" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_1-of-4 slds-p-around_xx-small">
+                    <lightning-button label="+" variant="brand" data-value="+" onclick={handleOperator} class="slds-size_full"></lightning-button>
+                </div>
+
+                <div class="slds-col slds-size_2-of-4 slds-p-around_xx-small">
+                    <lightning-button label="0" data-value="0" onclick={handleNumber} class="slds-size_full"></lightning-button>
+                </div>
+                <div class="slds-col slds-size_2-of-4 slds-p-around_xx-small">
+                    <lightning-button label="=" variant="success" onclick={handleCalculate} class="slds-size_full"></lightning-button>
+                </div>
+            </div>
+        </div>
+    </lightning-card>
+</template>
