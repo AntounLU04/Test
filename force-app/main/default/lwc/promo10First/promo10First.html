@@ -1,34 +1,51 @@
 <template>
-    <lightning-card icon-name="utility:activity" title="First">
-      <div>
-        <h1>CV</h1>
-        <section>
-        <h3>Professional Summary</h3>
-        <Text>Motivated Computer Science junior with a strong foundation in full-stack development and data structures. Experienced in building responsive web applications using React and Node.js. Seeking a Software Engineering internship to apply my problem-solving skills in a fast-paced team. </Text>
-            </section>
-          <section>
-        <h3>Technical skills</h3>
-        <Text>Python, Java, C++, JavaScript, SQL</Text>
-          </section>
-          <section>
-        <h3>Professional Experience</h3>
-        <Text>Built a full-stack e-commerce app using React and Firebase, reducing page load times by 20% through efficient state management</Text>
-        </section>
-        <section>
-        <h3>Education:</h3>
-        <Text>Bachelor of Science in Computer Science </Text>
-        </section>
-        <section>
-        <h3>Certifications</h3>
-        <Text>AWS Certified Cloud Practitioner </Text>
-        </section>
-        <section>
-        <h3>Languages</h3>
-        <text>English,French</text>
-        </section>
+    <lightning-card title="CV" icon-name="utility:retail_execution">
+        <div class="slds-var-p-around_medium">
+            
+            <lightning-accordion allow-multiple-sections-open active-section-name="summary" class="cv-accordion">
+                
+                <lightning-accordion-section name="summary" label="Professional Summary" class="cv-accordion-section slds-var-m-bottom_medium">
+                    <p class="slds-text-body_regular">
+                        Motivated Computer Science junior with a strong foundation in full-stack development and data structures. 
+                        Experienced in building responsive web applications using React and Node.js. 
+                        Seeking a Software Engineering internship to apply my problem-solving skills in a fast-paced team.
+                    </p>
+                </lightning-accordion-section>
 
-      </div>
-      
+                <lightning-accordion-section name="skills" label="Technical Skills" class="cv-accordion-section slds-var-m-bottom_medium">
+                    <p class="slds-text-body_regular">Python, Java, C++, JavaScript, SQL</p>
+                </lightning-accordion-section>
+
+                <lightning-accordion-section name="experience" label="Professional Experience" class="cv-accordion-section slds-var-m-bottom_medium">
+                    <p class="slds-text-body_regular">
+                        Built a full-stack e-commerce app using React and Firebase, reducing page load times by 20% through efficient state management.
+                    </p>
+                </lightning-accordion-section>
+
+                <div class="slds-grid slds-wrap slds-gutters matching-grid-container">
+                    
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-var-m-bottom_medium">
+                        <lightning-accordion-section name="education" label="Education" class="cv-accordion-section grid-section">
+                            <p class="slds-text-body_regular">Bachelor of Science in Computer Science</p>
+                        </lightning-accordion-section>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-var-m-bottom_medium">
+                        <lightning-accordion-section name="certifications" label="Certifications" class="cv-accordion-section grid-section">
+                            <p class="slds-text-body_regular">AWS Certified Cloud Practitioner</p>
+                        </lightning-accordion-section>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3 slds-var-m-bottom_medium">
+                        <lightning-accordion-section name="languages" label="Languages" class="cv-accordion-section grid-section">
+                            <p class="slds-text-body_regular">English, French</p>
+                        </lightning-accordion-section>
+                    </div>
+
+                </div>
+
+            </lightning-accordion>
+
+        </div>
     </lightning-card>
-    
 </template>
