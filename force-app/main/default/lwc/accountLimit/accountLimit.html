@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Dynamic Account List" icon-name="standard:account">
+        <div class="slds-var-m-around_medium">
+            <!-- Input to specify the number of accounts -->
+            <lightning-input 
+                type="number" 
+                label="Number of Accounts to Retrieve" 
+                value={numberOfAccounts} 
+                onchange={handleNumberChange}
+                min="1">
+            </lightning-input>
+        </div>
+
+        <!-- Display the accounts -->
+        <div class="slds-var-m-around_medium">
+            <template if:true={accounts}>
+                <template for:each={accounts} for:item="acc">
+                    <p key={acc.Id}>{acc.Name} - {acc.AnnualRevenue}</p>
+                </template>
+            </template>
+            
+            <template if:true={error}>
+                <p class="slds-text-color_error">An error occurred fetching data.</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
