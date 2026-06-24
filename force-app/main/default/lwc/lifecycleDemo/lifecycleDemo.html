@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Lifecycle Demo Component">
+        <div>
+            
+            <p>
+                Counter Value: <strong>{counter}</strong>
+            </p>
+
+            
+            <div>
+                <lightning-button 
+                    label="Increment Counter" 
+                    onclick={handleIncrement}>
+                </lightning-button>
+
+                <lightning-button 
+                    label="Show/Hide Message" 
+                    onclick={handleToggle}>
+                </lightning-button>
+            </div>
+
+            
+            <template if:true={isVisible}>
+                <div>
+                    <p>Hello LWC!</p>
+                </div>
+            </template>
+
+        </div>
+    </lightning-card>
+</template>

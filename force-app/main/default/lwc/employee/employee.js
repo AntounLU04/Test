@@ -8,7 +8,7 @@ export default class EmployeeManager extends LightningElement {
 
     @track employeeList = [];
 
-    // Datatable Columns Configuration (Including the Delete Action)
+    
     columns = [
         { label: 'Name', fieldName: 'name', type: 'text' },
         { label: 'Age', fieldName: 'age', type: 'number', cellAttributes: { alignment: 'left' } },
