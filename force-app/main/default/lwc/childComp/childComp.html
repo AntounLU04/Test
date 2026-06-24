@@ -1,0 +1,19 @@
+<template>
+    <div class="slds-box slds-m-around_small slds-theme_default">
+        <div class="slds-media slds-media_center slds-m-bottom_small">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:user" alternative-text="User" size="small"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <h2 class="slds-card__header-link slds-text-heading_small">{childName}</h2>
+            </div>
+        </div>
+        <div class="slds-text-align_center">
+            <lightning-button 
+                variant={buttonVariant} 
+                label={buttonLabel} 
+                onclick={handleToggle}>
+            </lightning-button>
+        </div>
+    </div>
+</template>

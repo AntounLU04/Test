@@ -1,0 +1,20 @@
+<template>
+    
+    <c-child-component10
+     greeting="World"
+     received-text={parentText}
+     ongreet={handleGreet} ></c-child-component10>
+
+     <p>{status}</p>
+     
+     <lightning-input 
+      type="text"
+      label="Enter some text"
+      value={parentText} 
+      onchange={handleInputChange}
+    ></lightning-input>
+    
+    
+   
+    
+</template>

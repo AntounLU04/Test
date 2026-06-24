@@ -1,0 +1,45 @@
+<template>
+    <div class="slds-box slds-theme_default slds-m-around_medium" onchildtoggle={handleChildToggle}>
+       
+        <div class="slds-media slds-media_center slds-m-bottom_medium">
+            <div class="slds-media__figure">
+                <lightning-icon icon-name="standard:groups" alternative-text="Parent" size="medium"></lightning-icon>
+            </div>
+            <div class="slds-media__body">
+                <h1 class="slds-text-heading_medium">Parent</h1>
+            </div>
+        </div>
+
+        
+        <div class="slds-grid slds-wrap slds-m-bottom_medium slds-text-title_caps">
+            <div class="slds-col slds-size_1-of-2">
+                Child One: <strong>{childOneStatus}</strong>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                Child Two: <strong>{childTwoStatus}</strong>
+            </div>
+        </div>
+
+      
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_1-of-2">
+                <span class="slds-text-color_error slds-text-title_bold">COMP 1</span>
+                <c-child-comp
+                    data-id="child1"
+                    child-id="child1" 
+                    child-name="Child One" 
+                    is-selected={child1Selected}>
+                </c-child-comp>
+            </div>
+            <div class="slds-col slds-size_1-of-2">
+                <span class="slds-text-color_error slds-text-title_bold">COMP 2</span>
+                <c-child-comp 
+                    data-id="child2"
+                    child-id="child2" 
+                    child-name="Child Two" 
+                    is-selected={child2Selected}>
+                </c-child-comp>
+            </div>
+        </div>
+    </div>
+</template>
