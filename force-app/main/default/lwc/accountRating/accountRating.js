@@ -1,24 +1,57 @@
-import { LightningElement, wire, track } from 'lwc';
+import { LightningElement, wire, track, api } from 'lwc';
 import getAccountListRating from '@salesforce/apex/AccountController.getAccountListRating';
+import { getPicklistValues } from 'lightning/uiObjectInfoApi';
+import RATING_FIELD from '@salesforce/schema/Account.Rating';
+import getAccountRecordTypeID from '@salesforce/apex/AccountController.getAccountRecordTypeID';
 
 export default class AccountFilter extends LightningElement {
+    @api recordId;
     @track selectedRating = 'All';
     @track accounts;
+    @track dynamicOptions = []; 
+    @track recordTypeID;
     error;
 
-    get filterOptions() {
-        return [
-            { label: 'All Accounts', value: 'All' },
-            { label: 'Hot Accounts', value: 'Hot' },
-            { label: 'Warm Accounts', value: 'Warm' },
-            { label: 'Cold Accounts', value: 'Cold' }
-        ];
+    @wire(getAccountRecordTypeID, {ac: '$recordId'})
+    getRecordType({error , data}) {
+        if(data){
+            this.recordTypeID=data[0].RecordTypeId;
+        }
+      else if (error) {
+            console.error('Error fetching picklist values:', error);
+    }
+}
+
+    @wire(getPicklistValues, { 
+        recordTypeId:'$recordTypeID', 
+        fieldApiName: RATING_FIELD 
+    })
+    wiredPicklistValues({ error, data }) {
+        if (data) {
+            const picklistOptions = data.values.map(picklist => ({
+                label: `${picklist.label} Accounts`, 
+                value: picklist.value
+            }));
+
+            
+            this.dynamicOptions = [
+                { label: 'All Accounts', value: 'All' },
+                ...picklistOptions
+            ];
+        } else if (error) {
+            console.error('Error fetching picklist values:', error);
+        }
     }
 
+   
+    get filterOptions() {
+        return this.dynamicOptions;
+    }
+
+ 
     @wire(getAccountListRating, { filter: '$selectedRating' })
     wiredAccounts({ error, data }) {
         if (data) {
-            
             this.accounts = data.map(account => {
                 return {
                     ...account,
@@ -35,7 +68,6 @@ export default class AccountFilter extends LightningElement {
         }
     }
 
-   
     handleRatingChange(event) {
         this.selectedRating = event.detail.value;
     }
