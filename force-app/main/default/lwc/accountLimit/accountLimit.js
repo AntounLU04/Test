@@ -2,11 +2,11 @@ import { LightningElement, wire, track } from 'lwc';
 import getAccountList from '@salesforce/apex/AccountController.getAccountList';
 
 export default class AccountLimit extends LightningElement {
-    @track numberOfAccounts = 10; // Default fallback value
+    @track numberOfAccounts = 10; 
     accounts;
     error;
 
-    // Pass the parameter inside an object using '$variableName' to make it reactive
+    
     @wire(getAccountList, { recordLimit: '$numberOfAccounts' })
     wiredAccounts({ error, data }) {
         if (data) {

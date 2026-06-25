@@ -1,7 +1,7 @@
 <template>
     <lightning-card title="Dynamic Account List" icon-name="standard:account">
         <div class="slds-var-m-around_medium">
-            <!-- Input to specify the number of accounts -->
+          
             <lightning-input 
                 type="number" 
                 label="Number of Accounts to Retrieve" 
@@ -11,7 +11,6 @@
             </lightning-input>
         </div>
 
-        <!-- Display the accounts -->
         <div class="slds-var-m-around_medium">
             <template if:true={accounts}>
                 <template for:each={accounts} for:item="acc">
